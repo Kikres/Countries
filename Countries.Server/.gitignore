@@ -31,3 +31,6 @@ msbuild.wrn
 
 # Visual Studio 2015
 .vs/
+
+# Ignore local appsettings
+appsettings.local.json

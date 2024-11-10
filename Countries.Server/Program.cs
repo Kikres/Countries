@@ -1,3 +1,6 @@
+using Countries.Server.Extensions;
+using Countries.Server.Mappings;
+using Countries.Server.Services;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 
@@ -6,6 +9,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+
+// Utelize local appsettings
+builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+builder.Configuration.AddJsonFile("appsettings.local.json", optional: false, reloadOnChange: true);
+
+// Add and configure Swagger
 builder.Services.AddSwaggerGen(o =>
 {
     o.SwaggerDoc("v1", new OpenApiInfo
@@ -19,7 +28,12 @@ builder.Services.AddSwaggerGen(o =>
     o.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
 
-// Add dependnecy injection
+// Preconfigure HttpClient
+builder.Services.AddCountryHttpClient(builder.Configuration);
+
+// Add dependency
+builder.Services.AddAutoMapper(typeof(DtoMappings));
+builder.Services.AddScoped<CountryService>();
 
 var app = builder.Build();
 
