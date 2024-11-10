@@ -37,11 +37,6 @@ public class CountryService
             var responseContent = await response.Content.ReadAsStringAsync();
             var countries = JsonSerializer.Deserialize<List<CountryInformationResponse>>(responseContent);
 
-            if(countries != null && countries.Count() > 0)
-            {
-                countries.ForEach(c => c.Capital.Reverse());
-            }
-
             return _mapper.Map<ICollection<CountryInformationDto>>(countries);
         }
         catch (HttpRequestException ex)

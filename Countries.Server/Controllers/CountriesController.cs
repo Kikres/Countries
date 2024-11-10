@@ -38,7 +38,6 @@ namespace Countries.Server.Controllers
             }
             catch (Exception ex)
             {
-                // Log the exception (optional)
                 return BadRequest($"An error occurred while processing your request: {ex.Message}");
             }
         }

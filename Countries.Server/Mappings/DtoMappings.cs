@@ -8,6 +8,7 @@ public class DtoMappings : Profile
 {
     public DtoMappings()
     {
-        CreateMap<CountryInformationResponse, CountryInformationDto>();
+        CreateMap<CountryInformationResponse, CountryInformationDto>()
+            .ForMember(dest => dest.ReversedCapital, opt => opt.MapFrom(src => new string(src.Capital.Reverse().ToArray())));
     }
 }
