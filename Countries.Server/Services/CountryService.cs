@@ -24,7 +24,7 @@ public class CountryService
     /// <param name="searchTerm">The term to search for in country names.</param>
     /// <returns>A <see cref="SearchResultDto"/> with sorted country information.</returns>
     /// <exception cref="Exception">Thrown if an error occurs during the API call or data processing.</exception>
-    public async Task<SearchResultDto> SearchCountriesAsync(string searchTerm)
+    public async Task<ICollection<CountryInformationDto>> SearchCountriesAsync(string searchTerm)
     {
         // Fitting endpoint according to the countrylayer API documentation
         var url = $"/{VERSION}/name/{searchTerm}";
@@ -42,12 +42,7 @@ public class CountryService
                 countries.ForEach(c => c.Capital.Reverse());
             }
 
-            var countryInformations = _mapper.Map<List<CountryInformationDto>>(countries);
-
-            return new SearchResultDto
-            {
-                CountryInformations = countryInformations
-            };
+            return _mapper.Map<ICollection<CountryInformationDto>>(countries);
         }
         catch (HttpRequestException ex)
         {

@@ -14,6 +14,17 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 builder.Configuration.AddJsonFile("appsettings.local.json", optional: false, reloadOnChange: true);
 
+// Configure CORS policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalhost", policy =>
+    {
+        policy.WithOrigins("http://localhost:5200") // Add the frontend URL
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 // Add and configure Swagger
 builder.Services.AddSwaggerGen(o =>
 {
@@ -40,6 +51,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseCors("AllowLocalhost");
     app.UseSwagger();
     app.UseSwaggerUI(o =>
     {

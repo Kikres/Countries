@@ -6,11 +6,11 @@ namespace Countries.Server.Controllers
 {
     [ApiController]
     [Route("api/v1/[controller]")]
-    public class CountryController : ControllerBase
+    public class CountriesController : ControllerBase
     {
         private readonly CountryService _countryService;
 
-        public CountryController(CountryService countryService)
+        public CountriesController(CountryService countryService)
         {
             _countryService = countryService;
         }
@@ -21,7 +21,7 @@ namespace Countries.Server.Controllers
         /// <param name="searchTerm">The search term to find countries.</param>
         /// <returns>A list of country information matching the search term.</returns>
         [HttpGet("search/{searchTerm}")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(SearchResultDto))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ICollection<CountryInformationDto>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> SearchCountries(string searchTerm)
