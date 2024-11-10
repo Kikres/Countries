@@ -11,8 +11,7 @@ export default defineConfig({
     },
   },
   server: {
-    port: 5101,
-    // Proxy to the ASP.NET Core backend
+    port: 5200,
     proxy: {
       '^/api': {
         target: 'http://localhost:5100',
