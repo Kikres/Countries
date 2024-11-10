@@ -22,7 +22,7 @@ public class CountryService
     /// Searches countries by a term and returns matching results, sorted by relevance.
     /// </summary>
     /// <param name="searchTerm">The term to search for in country names.</param>
-    /// <returns>A <see cref="SearchResultDto"/> with sorted country information.</returns>
+    /// <returns>A sorted enumerable with <see cref="CountryInformationDto"/> items</returns>
     /// <exception cref="Exception">Thrown if an error occurs during the API call or data processing.</exception>
     public async Task<ICollection<CountryInformationDto>> SearchCountriesAsync(string searchTerm)
     {
