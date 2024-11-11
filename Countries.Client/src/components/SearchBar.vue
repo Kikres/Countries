@@ -1,11 +1,9 @@
 <template>
   <div class="search-bar">
-    <input
-      type="text"
-      v-model="query"
-      placeholder="Search by country name..."
-      @input="handleSearch(query)"
-    />
+    <div>
+      <input type="text" v-model="query" placeholder="Search by country name..." />
+      <button @click="handleSearch(query)">Search</button>
+    </div>
     <ul v-if="countries.length" class="dropdown">
       <li
         v-for="(country, index) in countries"
@@ -62,7 +60,7 @@ input {
   width: 100%;
   padding: 10px 12px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 4px 0 0 4px;
 }
 
 input:focus,
@@ -73,7 +71,24 @@ input:hover {
 
 .search-bar:has(ul) input {
   border-bottom-left-radius: 0;
+}
+
+.search-bar:has(ul) button {
   border-bottom-right-radius: 0;
+}
+
+.search-bar > div {
+  display: flex;
+}
+
+.search-bar button {
+  padding: 10px 12px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 0 4px 4px 0;
+
+  cursor: pointer;
 }
 
 /* Dropdown style */
