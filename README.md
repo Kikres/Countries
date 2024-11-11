@@ -49,7 +49,7 @@ This is a Vue.js application that allows users to search for countries and view 
      npm run dev
      ```
 
-   The React app will run on [http://localhost:5200](http://localhost:5200).
+   The Vue.js app will run on [http://localhost:5200](http://localhost:5200).
 
 
 ## API Documentation
