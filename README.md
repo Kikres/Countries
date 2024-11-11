@@ -17,6 +17,8 @@ This is a Vue.js application that allows users to search for countries and view 
   cd Squares
 2. **Backend (API)**
 
+   Note: Don't forget to add the appsettings.local.json and reflec the structure in appsettings.json but with the key added.
+
    Navigate to the `Countries.Server` folder to set up and run the .NET backend:
 
    - Install dependencies and restore the project:
