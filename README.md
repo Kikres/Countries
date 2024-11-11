@@ -11,48 +11,40 @@ This is a Vue.js application that allows users to search for countries and view 
 ## Installation
 
 1. Clone the repository:
-   ```
-   git clone https://github.com/Kikres/Countries.git
-   ```
-  cd Squares
+```
+git clone https://github.com/Kikres/Countries.git
+```
+
 2. **Backend (API)**
+Note: Don't forget to add the appsettings.local.json and reflec the structure in appsettings.json but with the key added.
 
-   Note: Don't forget to add the appsettings.local.json and reflec the structure in appsettings.json but with the key added.
+Navigate to the `Countries.Server` folder to set up and run the .NET backend:
+- Install dependencies and restore the project:
+```
+dotnet restore
+```
 
-   Navigate to the `Countries.Server` folder to set up and run the .NET backend:
+- Run the backend server:
+```
+dotnet run
+```
 
-   - Install dependencies and restore the project:
-
-     ```
-     dotnet restore
-     ```
-
-   - Run the backend server:
-
-     ```
-     dotnet run
-     ```
-
-   The API will start on [http://localhost:5100](http://localhost:5100).
+The API will start on [http://localhost:5100](http://localhost:5100).
 
 3. **Frontend (Vue.js)**
 
-   Navigate to the `Countries.Client` folder to set up and run the React frontend:
+Navigate to the `Countries.Client` folder to set up and run the React frontend:
+- Install dependencies:
+```
+npm install
+```
 
-   - Install dependencies:
+- Start the React development server:
+```
+npm run dev
+```
 
-     ```
-     npm install
-     ```
-
-   - Start the React development server:
-
-     ```
-     npm run dev
-     ```
-
-   The Vue.js app will run on [http://localhost:5200](http://localhost:5200).
-
+The Vue.js app will run on [http://localhost:5200](http://localhost:5200).
 
 ## API Documentation
 
