@@ -4,9 +4,9 @@ This is a Vue.js application that allows users to search for countries and view 
 
 ## Usage
 
-Search for a Country: Type in the search bar to find a country.
-Add Country: Click on a country from the dropdown to add it to the list.
-Remove Country: Click the remove icon on an added country to remove it from the list.
+- **Country Search**: Search for countries by name using the search bar.
+- **Add and Remove Countries**: Add countries to a list to view details, and remove them with a single click.
+- **Responsive Design**: The layout adjusts for mobile, tablet, and desktop screens.
 
 ## Installation
 
