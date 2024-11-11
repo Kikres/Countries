@@ -38,6 +38,10 @@ builder.Services.AddSwaggerGen(o =>
     o.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
 
+// Add logging
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+
 // Preconfigure HttpClient
 builder.Services.AddCountryHttpClient(builder.Configuration);
 
